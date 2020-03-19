@@ -1,8 +1,9 @@
 <template>
     <div class="locale-changer">
-        <select v-model="$i18n.locale">
-            <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang" @click="setDirection">{{ lang }}</option>
-        </select>
+    
+        <ul v-model="$i18n.locale">
+          <li v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang" @click="changeItem($event)">{{lang}}</li>
+        </ul>
   </div>
 </template>
 
@@ -10,16 +11,12 @@
 
 <script>
 export default {
-  name: 'locale-changer',
   data () {
     return { langs: ['en', 'ar'] }
   },
-  methods :{
-      setDirection: function(){
-          if (langs === 'ar') {
-            document.getElementById('app').classList.toggle('rtl');
-          }
-          console.log(langs)
+  computed :{
+      changeItem :function (event){
+         alert('hhhhhhhhhhhh')
       }
   }
 }
@@ -32,4 +29,5 @@ export default {
     height: 25px;
     width: 50px;
 }
+
 </style>

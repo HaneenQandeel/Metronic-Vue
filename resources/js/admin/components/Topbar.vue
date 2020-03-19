@@ -1,6 +1,6 @@
 <template>
 							<!-- BEGIN: Topbar -->
-							<div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general m-stack--fluid">
+							<div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general m-stack--fluid" style="margin-top:-70px;">
 								<div class="m-stack__item m-topbar__nav-wrapper">
 									<ul class="m-topbar__nav m-nav m-nav--inline">
 										<li class="m-nav__item m-dropdown m-dropdown--large m-dropdown--arrow m-dropdown--align-center m-dropdown--mobile-full-width m-dropdown--skin-light	m-list-search m-list-search--skin-light" m-dropdown-toggle="click" id="m_quicksearch"
@@ -340,6 +340,8 @@
 												<span class="m-nav__link-icon"><i class="flaticon-grid-menu"></i></span>
 											</a>
 										</li>
+										                                  <router-link to="/registerUser"><button type="button" class="btn btn-primary" style="margin-top: 15px;">Register</button></router-link>
+                             <router-link to="/logIn"><button type="button" class="btn btn-success" style="margin-top: 15px;">LogIn</button></router-link>
 									</ul>
 								</div>
 							</div>
@@ -347,3 +349,13 @@
 							<!-- END: Topbar -->
 
 </template>
+
+<script>
+export default {
+	logout() {
+		let tokenRm = localStorage.getItem('token')
+		localStorage.removeItem('tokenRm');
+    }
+}
+
+</script>
