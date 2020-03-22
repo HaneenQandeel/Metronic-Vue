@@ -23,6 +23,12 @@
 										<div class="form-group m-form__group">
 											<input class="form-control m-input m-login__form-input--last" type="password" v-model="password" placeholder="Password" name="password">
 										</div>
+										<p v-if="errors.length" style="color:red;">
+                                    		<b>Please correct the following error(s):</b>
+                                    		<ul>
+                                       			<li v-for="error in errors">{{ error }}</li>
+                                            </ul>
+                                        </p>
 										<div class="row m-login__form-sub">
 											<div class="col m--align-left">
 												<label class="m-checkbox m-checkbox--focus">
@@ -30,14 +36,16 @@
 													<span></span>
 												</label>
 											</div>
+
 											<div class="col m--align-right">
 												<a href="javascript:;" id="m_login_forget_password" class="m-link">Forget Password ?</a>
 											</div>
 										</div>
 										<div class="m-login__form-action">
-											<button id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" @click.prevent="LogIn()" style="color:#000;"><router-link to="/">Sign In</router-link></button>
+											<button id="m_login_signin_submit" type="submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" @click.prevent="LogIn()" style="color:#000;">Sign In</button>
 										</div>
 									</form>
+									
 								</div>
 								<div class="m-login__signup">
 									<div class="m-login__head">
@@ -118,27 +126,53 @@ export default {
 	data: function () {
 		return {
 			email:'',
-            password:''
+            password:'',
+			errors:[],
+			reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
         }
     },
     methods: {
         LogIn() {
+			 if (this.email && this.password) {
+                return true;
+            }
+            this.errors = [];
+            if (!this.email) {
+                this.errors.push('Email required.');
+
+            }else if(!this.reg.test(this.email)){
+				this.errors.push("Please Enter Correct Email");
+             }
+            if (!this.password) {
+                this.errors.push('Password required.');
+            }
             axios.post("https://reqres.in/api/login",({
                 "email":this.email,
                 "password":this.password
             }))
                 .then(function(response) {
-                    if (response.data.token) {
-                        localStorage.setItem('token', JSON.stringify(response.data));
-						this.$router.push='/profile'
+					let access_token  = response.data
+	                localStorage.setItem('token', access_token);
+					localStorage.setItem('user',response.data.email.name );
+					// 	this.allerros = [];
+					// 	this.success = true
 
-                    }
+                    // }
                    
                 })
                 .catch(function(error) {
-                    console.log(error);
+					console.log(error);
+
                 });
         }
     }
 };
 </script>
+
+
+<style>
+ul {
+	list-style-type: none;
+}
+
+</style>

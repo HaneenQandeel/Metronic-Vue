@@ -16,7 +16,11 @@
                             <div class="m-login__head">
                                 <h3 class="m-login__title">Register Admin</h3>
                             </div>
-                            <form class="m-login__form m-form" action="">
+                            <form
+                                class="m-login__form m-form"
+                                action=""
+                                @submit="checkForm()"
+                            >
                                 <div class="form-group m-form__group">
                                     <input
                                         class="form-control m-input"
@@ -24,7 +28,7 @@
                                         placeholder="Email"
                                         name="email"
                                         autocomplete="off"
-										v-model="email"
+                                        v-model="email"
                                     />
                                 </div>
                                 <div class="form-group m-form__group">
@@ -33,12 +37,16 @@
                                         type="password"
                                         placeholder="Password"
                                         name="password"
-										v-model="password"
+                                        v-model="password"
                                     />
                                 </div>
-                                <div class="row m-login__form-sub">
-                                   
-                                </div>
+                                <p v-if="errors.length">
+                                    <b>Please correct the following error(s):</b>
+                                    <ul>
+                                        <li v-for="error in errors">{{ error }}</li>
+                                    </ul>
+                                </p>
+                                <div class="row m-login__form-sub"></div>
                                 <div class="m-login__form-action">
                                     <button
                                         @click.prevent="RegisterBtn()"
@@ -166,10 +174,9 @@
                         </div>
                         <div class="m-login__account">
                             <span class="m-login__account-msg">
-                                Don't have an account yet ? </span>
+                                Don't have an account yet ?
+                            </span>
                             &nbsp;&nbsp;
-
-                            
                         </div>
                     </div>
                 </div>
@@ -183,12 +190,24 @@ export default {
 	data: function () {
 		return {
 			email:'',
-            password:''
+            password:'',
+            errors: []
         }
     },
     methods: {
         RegisterBtn() {
-            return  axios.post("https://reqres.in/api/register", {
+            if (this.email && this.password) {
+                return true;
+            }
+            this.errors = [];
+            if (!this.email) {
+                this.errors.push('Email required.');
+                console.log('this.errors')
+            }
+            if (!this.password) {
+                this.errors.push('Password required.');
+            }
+            axios.post("https://reqres.in/api/register", {
                     "email": this.email,
                     "password": this.password
                 })

@@ -353,8 +353,8 @@
 <script>
 export default {
 	logout() {
-		let tokenRm = localStorage.getItem('token')
-		localStorage.removeItem('tokenRm');
+		localStorage.removeItem('token');
+		this.$router.push('/login')
     }
 }
 
