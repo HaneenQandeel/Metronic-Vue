@@ -36,7 +36,6 @@
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app">
-		<router-view></router-view>
 	</div>
     <script src="{{ mix('js/main.js') }}"></script>
 	<link rel="stylesheet" id="m" href="{{asset('/assets/demo/default/base/style.bundle.css')}}">

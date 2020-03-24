@@ -14,7 +14,9 @@
                 <!-- BEGIN: Aside -->
 
                 <v-aside></v-aside>
-                <v-dashboard></v-dashboard>
+				<v-table :fields="fields" :resources="resources"></v-table>
+				
+                <!-- ><v-dashboard></v-dashboard> -->
 <!-- BEGIN: Content -->
 
 
@@ -62,3 +64,60 @@
 		<!--end::Page Scripts -->
 	</div>
 </template>
+
+<script>
+export default {
+	data: function () {
+		return {
+           fields:[],
+			resources:[]
+			}
+	},
+	methods:{
+		getFields(){
+			 this.fields = [
+                    {
+                        name: 'id',
+                        label: 'ID',
+                        asHtml: false,
+                    },
+                    {
+                        name: 'email',
+                        label: 'Email',
+                        asHtml: false,
+                    },
+					{
+                        name: 'first_name',
+                        label: 'First Name',
+                        asHtml: false,
+                    },
+					{
+                        name: 'last_name',
+                        label: 'Last Name',
+                        asHtml: false,
+                    },
+					{
+                        name: 'avatar',
+                        label: 'Avatar',
+                        asHtml: false,
+					}
+                ]
+		
+		},
+		getResources(){
+			axios.get('https://reqres.in/api/users?page=2').then(response => {
+	            this.resources = response.data.data ;
+				});
+			
+		}
+	},
+    mounted() {
+        this.getResources();
+    },
+	created() {
+		this.getFields();
+		this.getResources();
+	}
+
+}
+</script>

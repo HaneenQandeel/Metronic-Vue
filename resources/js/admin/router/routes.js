@@ -6,7 +6,7 @@ import StateColors from '../components/StateColors'
 import Typography from '../components/Typography'
 
 export default  [
-    { path: '', component:  Layout },
+    { path: '', component: Layout },
     { path: '/state', component:  StateColors },
     { path: '/registerUser', component:  Register },
     { path: '/logIn', component:  LogIn},

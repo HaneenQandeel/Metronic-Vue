@@ -11,6 +11,10 @@ import Language from '../admin/components/language';
 import Layout from '../Layout';
 import StateColors from '../admin/components/StateColors';
 import Typography from '../admin/components/Typography';
+import VTable from '../admin/components/Table';
+import VTableRow from '../admin/components/TableRow';
+import VModal from '../admin/components/Modal';
+import Paginate from 'vuejs-paginate';
 
 
 Vue.component('horizontal-header',HorizontalMenu);
@@ -25,6 +29,11 @@ Vue.component('v-state',StateColors);
 Vue.component('v-layout',Layout);
 Vue.component('v-typography',Typography);
 Vue.component('v-language',Language);
+Vue.component('v-table',VTable);
+Vue.component('table-row',VTableRow);
+Vue.component('v-modal',VModal);
+Vue.component('paginate', Paginate)
+
 
 
 
