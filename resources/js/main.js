@@ -6,7 +6,9 @@ import Vuex from 'vuex'
 import router from './admin/router/index'
 import VModal from 'vue-js-modal'
 import Paginate from 'vuejs-paginate';
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import swal from 'sweetalert';
+
 
 // Install BootstrapVue
 Vue.use(BootstrapVue)

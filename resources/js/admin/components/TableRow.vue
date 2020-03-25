@@ -8,7 +8,7 @@
         <td class="kt-datatable__cell">
             <span style="overflow: visible; position: relative; width: 110px;">
             <a class="btn btn-sm btn-clean btn-icon btn-icon-md">
-                <i class="la la-info-circle" @click="show()"></i></a></span>
+                <i class="la la-info-circle" @click="show(resource)"></i></a></span>
             <button class="btn btn-sm btn-clean btn-icon btn-icon-md" @click="deleteData(resource)"><i class="la la-trash"></i></button>   
             <v-dialog/>
         </td>
@@ -28,11 +28,13 @@ export default{
         }
     },
     methods:{
-        show () {
-            axios.get('https://reqres.in/api/users').then(response => {
+        show (resource) {
+            axios.get('https://reqres.in/api/users/'+ resource.id).then(response => {
+                let dataInfo = response.data
                 this.$modal.show('dialog', {
                 title: 'Descriptions',
-                text: response.data.ad.text + '</br>' + 'Company is'+ ' ' +response.data.ad.company,
+                text: '<b>Email : </b>' + ' ' + dataInfo.data.email + '</br>' + '<b> First Name :</b>' + ' ' + dataInfo.data.first_name
+                    + ' </br>'  + '<b>Company :</b>'+ ' ' + dataInfo.ad.company + '</br>' + '<b>Info :</b>' + ' ' + dataInfo.ad.text,
                 buttons: [
                     {
                     title: 'Close'
@@ -45,6 +47,9 @@ export default{
 
         },
         deleteData(resource) {
+            swal("Are you sure you want to delete this?", {
+                buttons: ["No", "Yes"],
+            });
             axios.delete('https://reqres.in/api/users/' +resource.id)
             .then(response => {
                 this.resource.splice(this.resource,1);
