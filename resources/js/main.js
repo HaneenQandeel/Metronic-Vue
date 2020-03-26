@@ -8,7 +8,8 @@ import VModal from 'vue-js-modal'
 import Paginate from 'vuejs-paginate';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import swal from 'sweetalert';
-
+import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
+import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
 
 // Install BootstrapVue
 Vue.use(BootstrapVue)

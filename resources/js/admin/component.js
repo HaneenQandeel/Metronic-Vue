@@ -15,9 +15,13 @@ import VTable from '../admin/components/Table';
 import VTableRow from '../admin/components/TableRow';
 import VModal from '../admin/components/Modal';
 import Paginate from 'vuejs-paginate';
+import FormField from '../admin/components/FormFields';
+import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
+import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
 
 
 Vue.component('horizontal-header',HorizontalMenu);
+Vue.component('VueCtkDateTimePicker',VueCtkDateTimePicker);
 Vue.component('v-topbar',Topbar);
 Vue.component('v-aside',Aside);
 Vue.component('v-content',Content);
@@ -33,6 +37,7 @@ Vue.component('v-table',VTable);
 Vue.component('table-row',VTableRow);
 Vue.component('v-modal',VModal);
 Vue.component('paginate', Paginate)
+Vue.component('FormField', FormField)
 
 
 

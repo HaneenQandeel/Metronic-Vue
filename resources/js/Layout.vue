@@ -15,7 +15,6 @@
 
                 <v-aside></v-aside>
 				<v-table :fields="fields" :resources="resources"></v-table>
-				
                 <!-- ><v-dashboard></v-dashboard> -->
 <!-- BEGIN: Content -->
 
