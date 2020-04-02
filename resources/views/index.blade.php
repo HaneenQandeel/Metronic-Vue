@@ -47,6 +47,8 @@
     <link rel="stylesheet" href="{{asset('/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/demo/default/media/img/logo/favicon.ico')}}">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
 		
   </body>
 </html>

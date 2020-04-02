@@ -10,6 +10,10 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import swal from 'sweetalert';
 import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
 import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
+import vuetify from './admin/plugins/vuetify' // path to vuetify export
+import VueTreeList from 'vue-tree-list'
+ 
+Vue.use(VueTreeList)
 
 // Install BootstrapVue
 Vue.use(BootstrapVue)
@@ -25,6 +29,6 @@ Vue.config.productionTip = false
 
 new Vue({
   i18n,
-  router,
+  router,vuetify,
   render: h => h(App),
 }).$mount('#app')

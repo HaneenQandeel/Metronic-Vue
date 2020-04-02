@@ -15,7 +15,7 @@
 														 class="m-menu__link-text">Manage Orders</span><i class="m-menu__hor-arrow la la-angle-right"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
 													<div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--right"><span class="m-menu__arrow "></span>
 														<ul class="m-menu__subnav">
-															<li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Latest Orders</span></a></li>
+															<li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="" class="m-menu__link "><span class="m-menu__link-text">TreeView</span></a></li>
 															<li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Pending Orders</span></a></li>
 															<li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Processed Orders</span></a></li>
 															<li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="header/actions.html" class="m-menu__link "><span class="m-menu__link-text">Delivery Reports</span></a></li>
@@ -40,8 +40,8 @@
 											</ul>
 										</div>
 									</li>
-									<li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle" title="Non functional dummy link"><i
-											 class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">{{$t('reports')}}</span><i class="m-menu__hor-arrow la la-angle-down"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
+									<li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true"><router-link to="/tree" class="m-menu__link m-menu__toggle" title="Non functional dummy link"><i
+											 class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">{{$t('reports')}}</span><i class="m-menu__hor-arrow la la-angle-down"></i><i class="m-menu__ver-arrow la la-angle-right"></i></router-link>
 										<div class="m-menu__submenu  m-menu__submenu--fixed m-menu__submenu--left" style="width:1000px"><span class="m-menu__arrow m-menu__arrow--adjust"></span>
 											<div class="m-menu__subnav">
 												<ul class="m-menu__content">

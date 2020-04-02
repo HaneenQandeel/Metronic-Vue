@@ -203,14 +203,30 @@
     					<b-pagination v-model="currentPage" :total-rows=7 :per-page="perPage"
                           aria-controls="my-table"></b-pagination>
                        </div>
+
+					<div class="treeview m-portlet">
+					   <div class="m-portlet__head-caption m-portlet__head">
+									<div class="m-portlet__head-title">
+										<h3 class="m-portlet__head-text" style="float:left; margin-top: 20px;">
+											TreeView
+										</h3>
+									</div>
+								</div>
+								<div class="trees">
+								  <TreeView></TreeView>
+								</div>
+						
+					</div>
 						
 				</div>
+				
 </template>
 
 
 <script>
 export default {
     props: {
+		tree: Array,
         fields: {
             required: true
         },
@@ -221,11 +237,70 @@ export default {
      },
 	 data() {
       return {
+		parentName:'name',
         perPage: 3,
-        currentPage: 1
+        currentPage: 1,
+		expanded:false,
+		isClicked: false,
+		elements:[],
+		root:{
+        	name:'الملابس',
+        	children:[
+          		{
+           		 name:'ملابس أطفال 1',
+            	 children: [
+              		{name:'ملابس مواليد'}
+            	]
+         		 },
+          		{
+            	 name:'ملابس نساء',
+                 children:[]
+                         
+          }
+        ]
+      }
+        
+    
+	  }
+
+	  },
+	  methods:{
+		  addNode(){
+			  var nodes = this.root.children;
+			  return this.root.children.push({
+				  'name' : this.parentName
+			  });
+
+			//   for (var i=0; i<=nodes.length; i++){
+			//  	console.log(nodes[i] , 'hhhhhhh');
+			// 	let element = nodes[i]
+            //     let obj = {}
+			// 	obj.push(this.parentName);
+			// 	console.log(obj)
+			//   }
+		  },
+		  addchilds(){
+			   var nodes = this.root.children[0]
+			   if (nodes && !this.expanded){
+				   console.log('kkkkkk')
+			   }
+			
+		  }
 	  }
 	 }
 
-}
+
 
 </script>
+<style>
+.treeview{
+	border: 2px solid #fff;
+    width: 94%;
+    margin-bottom: 15px;
+	margin:0 auto;
+    background-color: #fff;
+}
+.treeview .trees{
+	margin-top:25px;
+}
+</style>
