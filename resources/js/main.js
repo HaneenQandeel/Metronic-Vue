@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import './admin/component'
 import i18n from './admin/i18n'
-import Vuex from 'vuex'
 import router from './admin/router/index'
 import VModal from 'vue-js-modal'
 import Paginate from 'vuejs-paginate';
@@ -11,11 +10,11 @@ import swal from 'sweetalert';
 import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
 import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
 import vuetify from './admin/plugins/vuetify' // path to vuetify export
-import VueTreeList from 'vue-tree-list'
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import * as Tabs from 'vue-slim-tabs'
  
-Vue.use(VueTreeList)
-
-// Install BootstrapVue
+Vue.use(Tabs)
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)

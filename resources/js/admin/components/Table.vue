@@ -31,6 +31,7 @@
 										</a>
 									</li>
 								</ul>
+								<button><router-link to="/register-profile"></router-link>Profile</button>
 							</div>
 							<div>
 								<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
@@ -217,7 +218,8 @@
 								</div>
 						
 					</div>
-						
+					<v-slides></v-slides>
+					<v-tabs></v-tabs>
 				</div>
 				
 </template>
@@ -226,7 +228,6 @@
 <script>
 export default {
     props: {
-		tree: Array,
         fields: {
             required: true
         },
@@ -237,57 +238,19 @@ export default {
      },
 	 data() {
       return {
-		parentName:'name',
         perPage: 3,
         currentPage: 1,
 		expanded:false,
 		isClicked: false,
-		elements:[],
-		root:{
-        	name:'الملابس',
-        	children:[
-          		{
-           		 name:'ملابس أطفال 1',
-            	 children: [
-              		{name:'ملابس مواليد'}
-            	]
-         		 },
-          		{
-            	 name:'ملابس نساء',
-                 children:[]
-                         
-          }
-        ]
-      }
-        
-    
-	  }
 
+      }
+    
 	  },
 	  methods:{
-		  addNode(){
-			  var nodes = this.root.children;
-			  return this.root.children.push({
-				  'name' : this.parentName
-			  });
 
-			//   for (var i=0; i<=nodes.length; i++){
-			//  	console.log(nodes[i] , 'hhhhhhh');
-			// 	let element = nodes[i]
-            //     let obj = {}
-			// 	obj.push(this.parentName);
-			// 	console.log(obj)
-			//   }
-		  },
-		  addchilds(){
-			   var nodes = this.root.children[0]
-			   if (nodes && !this.expanded){
-				   console.log('kkkkkk')
-			   }
-			
-		  }
 	  }
-	 }
+	 
+}
 
 
 
